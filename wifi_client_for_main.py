@@ -38,10 +38,10 @@ while True:
        print(t)
        if t  > 2:
             break
-            print(t)
-            pb = Pushbullet("o.FcXCqJ1cIbkPUzVIXklatsiEv63R5PcU")
-            dev = pb.get_device('Google Pixel 2 XL')
-            push = dev.push_note("Alert!!", "The power is out")
+            
        
-
+pb = Pushbullet("o.FcXCqJ1cIbkPUzVIXklatsiEv63R5PcU")
+dev = pb.get_device('Google Pixel 2 XL')
+push = dev.push_note("Alert!!", "The power is out")
 print("hello")
+
