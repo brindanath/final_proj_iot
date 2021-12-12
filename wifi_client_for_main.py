@@ -12,7 +12,7 @@ sa.close()
 
 
 
-HOST = "192.168.1.133" # IP address of your Raspberry PI
+HOST = "192.168.1.249" # IP address of your Raspberry PI
 PORT = 65432          # The port used by the server
 
 
@@ -29,13 +29,12 @@ while True:
             s.connect((HOST, PORT))
             sleep(10)
     
-    except ConnectionRefusedError as e:    # This is the correct syntax
-       print("no connection")
+    except (ConnectionRefusedError, OSError) as e:    # Multiple error catch
        t = t + 1
        print(t)
        sleep(5)
     finally:
-       print(t)
+
        if t  > 2:
             break
             
@@ -43,5 +42,4 @@ while True:
 pb = Pushbullet("o.FcXCqJ1cIbkPUzVIXklatsiEv63R5PcU")
 dev = pb.get_device('Google Pixel 2 XL')
 push = dev.push_note("Alert!!", "The power is out")
-print("hello")
-
+print("the power is out")
